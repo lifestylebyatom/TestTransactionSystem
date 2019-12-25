@@ -42,7 +42,7 @@ namespace TestTransactionSystem.Managers
 
                         if (!string.IsNullOrEmpty(item.Transaction_id))
                         {
-                            i.Transaction_id = ReplaceString(item.Transaction_id);
+                            i.TransactionId = ReplaceString(item.Transaction_id);
                         }
                         else
                         {
@@ -55,7 +55,7 @@ namespace TestTransactionSystem.Managers
                         }
                         else
                         {
-                            throw new Exception($"{i.Transaction_id} - Amount is null or empty.");
+                            throw new Exception($"{i.TransactionId} - Amount is null or empty.");
                         }
 
                         if (!string.IsNullOrEmpty(item.CurrencyCode))
@@ -64,16 +64,16 @@ namespace TestTransactionSystem.Managers
                         }
                         else
                         {
-                            throw new Exception($"{i.Transaction_id} - CurrencyCode is null or empty.");
+                            throw new Exception($"{i.TransactionId} - CurrencyCode is null or empty.");
                         }
 
                         if (!string.IsNullOrEmpty(item.Transaction_Date))
                         {
-                            i.Transaction_Date = DateTime.ParseExact(ReplaceString(item.Transaction_Date), "dd/MM/yyyy hh:mm:ss", CultureInfo.InvariantCulture);
+                            i.TransactionDate = DateTime.ParseExact(ReplaceString(item.Transaction_Date), "dd/MM/yyyy hh:mm:ss", CultureInfo.InvariantCulture);
                         }
                         else
                         {
-                            throw new Exception($"{i.Transaction_id} - Transaction_Date is null or empty.");
+                            throw new Exception($"{i.TransactionId} - Transaction_Date is null or empty.");
                         }
 
                         if (!string.IsNullOrEmpty(item.Status))
@@ -82,7 +82,7 @@ namespace TestTransactionSystem.Managers
                         }
                         else
                         {
-                            throw new Exception($"{i.Transaction_id} - Status is null or empty.");
+                            throw new Exception($"{i.TransactionId} - Status is null or empty.");
                         }
 
                         toReturn.Add(i);

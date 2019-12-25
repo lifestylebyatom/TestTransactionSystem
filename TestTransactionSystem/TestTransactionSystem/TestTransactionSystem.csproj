@@ -180,24 +180,25 @@
     </Compile>
     <Compile Include="Managers\CSVManager.cs" />
     <Compile Include="Managers\LoggerManager.cs" />
+    <Compile Include="Managers\TransactionManager.cs" />
     <Compile Include="Managers\XMLManager.cs" />
-    <Compile Include="Models\DataModel\TestTransactionSystemModel.Context.cs">
+    <Compile Include="Models\DataModel\TestTransactionSystemEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TestTransactionSystemModel.Context.tt</DependentUpon>
+      <DependentUpon>TestTransactionSystemEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataModel\TestTransactionSystemModel.cs">
+    <Compile Include="Models\DataModel\TestTransactionSystemEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TestTransactionSystemModel.tt</DependentUpon>
+      <DependentUpon>TestTransactionSystemEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataModel\TestTransactionSystemModel.Designer.cs">
+    <Compile Include="Models\DataModel\TestTransactionSystemEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TestTransactionSystemModel.edmx</DependentUpon>
+      <DependentUpon>TestTransactionSystemEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DataModel\Transaction.cs">
-      <DependentUpon>TestTransactionSystemModel.tt</DependentUpon>
+      <DependentUpon>TestTransactionSystemEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ImportModel\CSVImportModel.cs" />
     <Compile Include="Models\ViewModel\TransactionViewModel.cs" />
@@ -210,15 +211,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\DataModel\TestTransactionSystemModel.Context.tt">
+    <Content Include="Models\DataModel\TestTransactionSystemEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TestTransactionSystemModel.edmx</DependentUpon>
-      <LastGenOutput>TestTransactionSystemModel.Context.cs</LastGenOutput>
+      <DependentUpon>TestTransactionSystemEntities.edmx</DependentUpon>
+      <LastGenOutput>TestTransactionSystemEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DataModel\TestTransactionSystemModel.tt">
+    <Content Include="Models\DataModel\TestTransactionSystemEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TestTransactionSystemModel.edmx</DependentUpon>
-      <LastGenOutput>TestTransactionSystemModel.cs</LastGenOutput>
+      <DependentUpon>TestTransactionSystemEntities.edmx</DependentUpon>
+      <LastGenOutput>TestTransactionSystemEntities.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
@@ -227,12 +228,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\DataModel\TestTransactionSystemModel.edmx">
+    <EntityDeploy Include="Models\DataModel\TestTransactionSystemEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TestTransactionSystemModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>TestTransactionSystemEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\DataModel\TestTransactionSystemModel.edmx.diagram">
-      <DependentUpon>TestTransactionSystemModel.edmx</DependentUpon>
+    <Content Include="Models\DataModel\TestTransactionSystemEntities.edmx.diagram">
+      <DependentUpon>TestTransactionSystemEntities.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

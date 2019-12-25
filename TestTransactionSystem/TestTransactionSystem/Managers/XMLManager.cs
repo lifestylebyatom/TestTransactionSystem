@@ -32,10 +32,10 @@ namespace TestTransactionSystem.Managers
                         var i = new TransactionViewModel();
 
                         var transaction_id = t.Attributes("id").First();
-                        i.Transaction_id = transaction_id.Value;
+                        i.TransactionId = transaction_id.Value;
 
                         var transactionDate = t.Descendants("TransactionDate").First();
-                        i.Transaction_Date = DateTime.ParseExact(transactionDate.Value, "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
+                        i.TransactionDate = DateTime.ParseExact(transactionDate.Value, "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
 
                         var Amount = t.Descendants("PaymentDetails").Elements("Amount").First();
                         i.Amount = Convert.ToDecimal(Amount.Value);

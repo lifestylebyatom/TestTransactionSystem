@@ -8,10 +8,10 @@ namespace TestTransactionSystem.Models.ViewModel
 {
     public class TransactionViewModel
     {
-        public string Transaction_id { get; set; }
+        public string TransactionId { get; set; }
         public Decimal Amount { get; set; }
         public string CurrencyCode { get; set; }
-        public DateTime? Transaction_Date { get; set; }
+        public DateTime TransactionDate { get; set; }
         public string Status { get; set; }
     }
 
@@ -19,10 +19,10 @@ namespace TestTransactionSystem.Models.ViewModel
     {
         public TransactionViewModelMap()
         {
-            Map(m => m.Transaction_id).Index(0);
+            Map(m => m.TransactionId).Index(0);
             Map(m => m.Amount).Index(1);
             Map(m => m.CurrencyCode).Index(2);
-            Map(m => m.Transaction_Date).Index(3);
+            Map(m => m.TransactionDate).Index(3);
             Map(m => m.Status).Index(4);
         }
     }
