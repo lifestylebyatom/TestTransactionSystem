@@ -21,7 +21,10 @@ namespace TestTransactionSystem.Controllers
         {
             bool isVaild = false;
             string message = "";
+
+            LoggerManager _logger = new LoggerManager();
             CSVManager _CSVManager = new CSVManager();
+            XMLManager _XMLManager = new XMLManager();
 
             try
             {
@@ -40,7 +43,7 @@ namespace TestTransactionSystem.Controllers
                             _CSVManager.GetImportList(fileContent);
                             break;
                         case Common.FileImportExtention.xml:
-
+                            _XMLManager.GetImportList(fileContent);
                             break;
                         default:
                             message = "Unknown format";
@@ -48,19 +51,22 @@ namespace TestTransactionSystem.Controllers
                     }
 
                     if (!isVaild)
+                    {
+                        message = "File import not success.";
                         break;
+                    }
+                    else {
+                        message = "File import success.";
+                    }
 
-                    message = "File import success.";
+
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                _logger.LogError(ex);
+                message = $"Error: {ex.Message}";
             }
-
-
-
 
             return Json(message);
         }
