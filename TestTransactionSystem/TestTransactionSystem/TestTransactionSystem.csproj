@@ -174,7 +174,6 @@
     <Compile Include="Managers\LoggerManager.cs" />
     <Compile Include="Managers\XMLManager.cs" />
     <Compile Include="Models\ImportModel\CSVImportModel.cs" />
-    <Compile Include="Models\ImportModel\ImportModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
