@@ -72,8 +72,7 @@ namespace TestTransactionSystem.Controllers
                 _logger.LogError(ex);
                 message = $"Error: {ex.Message}";
             }
-
-            return Json(message);
+            return Json(new {responseText = message }, JsonRequestBehavior.AllowGet);
         }
     }
 }
