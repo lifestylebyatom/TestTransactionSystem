@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using TestTransactionSystem.Constants;
 using TestTransactionSystem.Managers;
+using TestTransactionSystem.Models.ViewModel;
 
 namespace TestTransactionSystem.Controllers
 {
@@ -25,7 +26,7 @@ namespace TestTransactionSystem.Controllers
             LoggerManager _logger = new LoggerManager();
             CSVManager _CSVManager = new CSVManager();
             XMLManager _XMLManager = new XMLManager();
-
+            TransactionManager _TransactionManager = new TransactionManager();
             try
             {
                 for (int i = 0; i < Request.Files.Count; i++)
@@ -36,18 +37,24 @@ namespace TestTransactionSystem.Controllers
                     string fileName = file.FileName;
                     string fileEx = Path.GetExtension(fileName);
                     System.IO.Stream fileContent = file.InputStream;
+                    var InsertList = new List<TransactionViewModel>();
 
                     switch (fileEx.ToLower())
                     {
                         case Common.FileImportExtention.csv:
-                            _CSVManager.GetImportList(fileContent);
+                            InsertList =  _CSVManager.GetImportList(fileContent);
                             break;
                         case Common.FileImportExtention.xml:
-                            _XMLManager.GetImportList(fileContent);
+                            InsertList = _XMLManager.GetImportList(fileContent);
                             break;
                         default:
                             message = "Unknown format";
                             break;
+                    }
+
+                    if (InsertList.Count>0)
+                    {
+                        isVaild = _TransactionManager.InsertTransaction(InsertList);
                     }
 
                     if (!isVaild)

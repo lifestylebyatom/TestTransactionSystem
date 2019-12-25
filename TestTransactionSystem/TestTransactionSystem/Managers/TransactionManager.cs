@@ -10,7 +10,7 @@ namespace TestTransactionSystem.Managers
     public class TransactionManager
     {
         TestTransactionSystemEntities db = new TestTransactionSystemEntities();
-        public bool  insert(List<TransactionViewModel> model)
+        public bool InsertTransaction(List<TransactionViewModel> model)
         {
             LoggerManager _logger = new LoggerManager();
             var dtNow = DateTime.Now;
