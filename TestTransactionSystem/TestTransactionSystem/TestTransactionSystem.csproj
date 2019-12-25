@@ -48,6 +48,10 @@
       <HintPath>..\packages\CsvHelper.12.2.2\lib\net45\CsvHelper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -83,7 +87,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
       <Private>True</Private>
@@ -174,6 +181,24 @@
     <Compile Include="Managers\CSVManager.cs" />
     <Compile Include="Managers\LoggerManager.cs" />
     <Compile Include="Managers\XMLManager.cs" />
+    <Compile Include="Models\DataModel\TestTransactionSystemModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestTransactionSystemModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModel\TestTransactionSystemModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestTransactionSystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModel\TestTransactionSystemModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestTransactionSystemModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModel\Transaction.cs">
+      <DependentUpon>TestTransactionSystemModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ImportModel\CSVImportModel.cs" />
     <Compile Include="Models\ViewModel\TransactionViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -185,12 +210,29 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\DataModel\TestTransactionSystemModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TestTransactionSystemModel.edmx</DependentUpon>
+      <LastGenOutput>TestTransactionSystemModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DataModel\TestTransactionSystemModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TestTransactionSystemModel.edmx</DependentUpon>
+      <LastGenOutput>TestTransactionSystemModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\DataModel\TestTransactionSystemModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TestTransactionSystemModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DataModel\TestTransactionSystemModel.edmx.diagram">
+      <DependentUpon>TestTransactionSystemModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -227,6 +269,9 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
