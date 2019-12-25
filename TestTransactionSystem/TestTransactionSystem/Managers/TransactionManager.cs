@@ -13,8 +13,12 @@ namespace TestTransactionSystem.Managers
         public bool  insert(List<TransactionViewModel> model)
         {
             LoggerManager _logger = new LoggerManager();
+            var dtNow = DateTime.Now;
+            var userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            bool toReturn = false;
+
             try
-            {
+            {         
                 foreach (var i in model)
                 {
                     var item = new Transaction();
@@ -25,6 +29,11 @@ namespace TestTransactionSystem.Managers
                     item.CurrencyCode = i.CurrencyCode;
                     item.Status = i.Status;
 
+                    item.CreateBy = userName;
+                    item.CreateDate = dtNow;
+                    item.UpdateBy = userName;
+                    item.UpdateDate = dtNow;
+
                     db.Transactions.Add(item);
                 }
                 db.SaveChanges();
@@ -32,10 +41,12 @@ namespace TestTransactionSystem.Managers
             catch (Exception ex)
             {
                 _logger.LogError(ex);
-                return false;
+            }
+            finally {
+                db.Dispose();
             }
 
-            return true;
+            return toReturn;
         }
     }
 }
