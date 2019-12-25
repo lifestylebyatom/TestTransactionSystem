@@ -54,14 +54,14 @@
                 formdata.append(fileInput.files[i].name, fileInput.files[i]);
             }
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', '/Import/UploadFile');
+            xhr.open('POST', '/Home/UploadFile');
             xhr.send(formdata);
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     alert(xhr.responseText);
                 }
             }
-            return false;
+            //return false;
         }
 
     </script>

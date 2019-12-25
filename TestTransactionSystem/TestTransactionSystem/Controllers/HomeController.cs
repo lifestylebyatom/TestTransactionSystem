@@ -65,8 +65,6 @@ namespace TestTransactionSystem.Controllers
                     else {
                         message = "File import success.";
                     }
-
-
                 }
             }
             catch (Exception ex)

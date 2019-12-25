@@ -18,7 +18,8 @@ namespace TestTransactionSystem.Managers
             bool toReturn = false;
 
             try
-            {         
+            {
+                db = new TestTransactionSystemEntities();
                 foreach (var i in model)
                 {
                     var item = new Transaction();
@@ -37,6 +38,7 @@ namespace TestTransactionSystem.Managers
                     db.Transactions.Add(item);
                 }
                 db.SaveChanges();
+                toReturn = true;
             }
             catch (Exception ex)
             {
