@@ -162,6 +162,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Managers\CSVManager.cs" />
+    <Compile Include="Managers\LoggerManager.cs" />
+    <Compile Include="Managers\XMLManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
