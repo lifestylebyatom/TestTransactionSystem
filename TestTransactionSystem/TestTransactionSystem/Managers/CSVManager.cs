@@ -16,6 +16,8 @@ namespace TestTransactionSystem.Managers
         {
             var toReturn = new List<TransactionViewModel>();
             var CSVReaderList = new List<CSVImportModel>();
+
+            LoggerManager _logger = new LoggerManager();
             try
             {
                 using (var reader = new StreamReader(fileStream))
@@ -89,7 +91,7 @@ namespace TestTransactionSystem.Managers
             }
             catch (Exception ex)
             {
-
+                _logger.LogError(ex);
                 throw;
             }
 
