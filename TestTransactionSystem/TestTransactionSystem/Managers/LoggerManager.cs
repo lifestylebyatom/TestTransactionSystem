@@ -59,6 +59,7 @@ namespace TestTransactionSystem.Managers
 
         public void LogError(Exception objException)
         {
+            LogFilePath = HttpContext.Current.ApplicationInstance.Server.MapPath("~/App_Data/Logs");
             WriteErrorLog(LogFilePath, objException);
         }
 
