@@ -209,6 +209,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="ExampleFile\ExampleFileCSV.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -237,6 +238,7 @@
     <Content Include="Models\DataModel\TestTransactionSystemEntities.edmx.diagram">
       <DependentUpon>TestTransactionSystemEntities.edmx</DependentUpon>
     </Content>
+    <Content Include="ExampleFile\ExampleFileCSV.csv" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -249,6 +251,8 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="SQL\CreateDatabase.sql" />
+    <Content Include="SQL\CreateTable.sql" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
