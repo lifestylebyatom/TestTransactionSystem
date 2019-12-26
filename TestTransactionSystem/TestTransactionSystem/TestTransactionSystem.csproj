@@ -169,7 +169,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiControllers\GetDataController.cs" />
+    <Compile Include="ApiControllers\GetTransactionController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -202,6 +202,7 @@
       <DependentUpon>TestTransactionSystemEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ImportModel\CSVImportModel.cs" />
+    <Compile Include="Models\ViewModel\TransactionExportViewModel.cs" />
     <Compile Include="Models\ViewModel\TransactionViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

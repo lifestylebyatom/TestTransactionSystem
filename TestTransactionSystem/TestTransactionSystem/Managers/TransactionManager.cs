@@ -50,5 +50,110 @@ namespace TestTransactionSystem.Managers
 
             return toReturn;
         }
+
+        public List<TransactionExportViewModel> GetByCurrency(string id)
+        {
+            LoggerManager _logger = new LoggerManager();
+            var  toReturn = new List<TransactionExportViewModel>();
+
+            try
+            {
+                db = new TestTransactionSystemEntities();
+                var selectList = db.Transactions.Where(x => x.CurrencyCode == id).ToList();
+
+                foreach (var s in selectList)
+                {
+                    var i = new TransactionExportViewModel();
+                    i.id = s.TransactionId;
+                    i.payment = $"{s.Amount} {s.CurrencyCode}";
+                    i.Status = s.Status;
+
+                    toReturn.Add(i);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex);
+            }
+            finally
+            {
+                db.Dispose();
+            }
+
+            return toReturn;
+        }
+
+        public List<TransactionExportViewModel> GetByDateRange(DateTime? DateFrom ,DateTime? DateTo)
+        {
+            LoggerManager _logger = new LoggerManager();
+            var toReturn = new List<TransactionExportViewModel>();
+
+            try
+            {
+                db = new TestTransactionSystemEntities();
+                var selectList = db.Transactions.ToList();
+                if (DateFrom.HasValue)
+                {
+                    selectList.Where(x => x.TransactionDate >= DateFrom.Value).ToList();
+                }
+
+                if (DateTo.HasValue)
+                {
+                    selectList.Where(x => x.TransactionDate <= DateFrom.Value).ToList();
+                }
+
+                foreach (var s in selectList)
+                {
+                    var i = new TransactionExportViewModel();
+                    i.id = s.TransactionId;
+                    i.payment = $"{s.Amount} {s.CurrencyCode}";
+                    i.Status = s.Status;
+
+                    toReturn.Add(i);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex);
+            }
+            finally
+            {
+                db.Dispose();
+            }
+
+            return toReturn;
+        }
+
+        public List<TransactionExportViewModel> GetByStatus(string id)
+        {
+            LoggerManager _logger = new LoggerManager();
+            var toReturn = new List<TransactionExportViewModel>();
+
+            try
+            {
+                db = new TestTransactionSystemEntities();
+                var selectList = db.Transactions.Where(x => x.Status == id).ToList();
+
+                foreach (var s in selectList)
+                {
+                    var i = new TransactionExportViewModel();
+                    i.id = s.TransactionId;
+                    i.payment = $"{s.Amount} {s.CurrencyCode}";
+                    i.Status = s.Status;
+
+                    toReturn.Add(i);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex);
+            }
+            finally
+            {
+                db.Dispose();
+            }
+
+            return toReturn;
+        }
     }
 }
